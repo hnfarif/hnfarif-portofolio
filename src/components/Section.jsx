@@ -20,7 +20,7 @@ export default function Section({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-full mb-3"
+                className="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-violet-600 dark:text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-full mb-3"
               >
                 {badge}
               </motion.span>
@@ -32,7 +32,7 @@ export default function Section({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4"
+                className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4"
               >
                 {title}
               </motion.h2>
@@ -44,7 +44,7 @@ export default function Section({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-gray-400 max-w-3xl text-sm md:text-base font-light leading-relaxed"
+                className="text-gray-600 dark:text-gray-400 max-w-3xl text-sm md:text-base font-light leading-relaxed"
               >
                 {subtitle}
               </motion.p>

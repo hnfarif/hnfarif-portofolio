@@ -53,13 +53,13 @@ export default function Contact() {
         <div className="lg:col-span-4 flex flex-col gap-4">
           <div className="glass-panel p-6 rounded-3xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-violet-600/5 glow-blur pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-6">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
               Direct Channels
             </h3>
 
             <div className="flex flex-col gap-4">
               {/* Email channel */}
-              <div className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/5 rounded-2xl">
+              <div className="flex items-center justify-between p-4 bg-black/[0.01] dark:bg-white/[0.01] border border-black/5 dark:border-white/5 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-violet-500/10 border border-violet-500/20 rounded-xl text-violet-400">
                     <Mail className="w-5 h-5" />
@@ -70,7 +70,7 @@ export default function Contact() {
                     </span>
                     <a
                       href={`mailto:${cvData.personal.email}`}
-                      className="text-sm text-gray-200 hover:text-white transition-colors duration-200 font-medium break-all"
+                      className="text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium break-all"
                     >
                       {cvData.personal.email}
                     </a>
@@ -80,7 +80,7 @@ export default function Contact() {
                   onClick={() =>
                     copyToClipboard(cvData.personal.email, "email")
                   }
-                  className="p-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl border border-transparent hover:border-white/5 transition-all duration-200"
+                  className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-xl border border-transparent hover:border-black/5 dark:hover:border-white/5 transition-all duration-200"
                   title="Copy Email"
                 >
                   {copiedEmail ? (
@@ -92,7 +92,7 @@ export default function Contact() {
               </div>
 
               {/* LinkedIn channel */}
-              <div className="flex items-center justify-between p-4 bg-white/[0.01] border border-white/5 rounded-2xl">
+              <div className="flex items-center justify-between p-4 bg-black/[0.01] dark:bg-white/[0.01] border border-black/5 dark:border-white/5 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
                     <LinkedinIcon className="w-5 h-5" />
@@ -105,7 +105,7 @@ export default function Contact() {
                       href={cvData.personal.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-gray-200 hover:text-white transition-colors duration-200 font-medium"
+                      className="text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium"
                     >
                       linkedin.com/in/hnfarif
                     </a>
@@ -119,10 +119,10 @@ export default function Contact() {
         <div className="lg:col-span-4 flex flex-col gap-4">
           <div className="glass-panel p-6 rounded-3xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-violet-600/5 glow-blur pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-6">Social Media</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Social Media</h3>
 
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between p-4 bg-white/1 border border-white/5 rounded-2xl">
+              <div className="flex items-center justify-between p-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
                     <InstagramIcon className="w-5 h-5" />
@@ -135,7 +135,7 @@ export default function Contact() {
                       href={cvData.personal.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-gray-200 hover:text-white transition-colors duration-200 font-medium"
+                      className="text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium"
                     >
                       instagram.com/hnfarif
                     </a>
@@ -149,10 +149,10 @@ export default function Contact() {
         <div className="lg:col-span-4 flex flex-col gap-4">
           <div className="glass-panel p-6 rounded-3xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-violet-600/5 glow-blur pointer-events-none" />
-            <h3 className="text-lg font-bold text-white mb-6">Github</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Github</h3>
 
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between p-4 bg-white/1 border border-white/5 rounded-2xl">
+              <div className="flex items-center justify-between p-4 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-2xl">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-400">
                     <GithubIcon className="w-5 h-5" />
@@ -165,7 +165,7 @@ export default function Contact() {
                       href={cvData.personal.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-gray-200 hover:text-white transition-colors duration-200 font-medium"
+                      className="text-sm text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium"
                     >
                       github.com/hnfarif
                     </a>

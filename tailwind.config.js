@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -14,6 +15,13 @@ export default {
           success: '#10b981',  // emerald
           info: '#3b82f6',     // blue
         },
+        light: {
+          bg: '#f8fafc',       // slate-50
+          card: '#ffffff',     // white
+          accent: '#6366f1',   // indigo-500
+          text: '#0f172a',     // slate-900
+          muted: '#64748b',    // slate-500
+        }
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],

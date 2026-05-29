@@ -13,7 +13,7 @@ import AIChatWidget from './components/AIChatWidget';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen text-gray-200 selection:bg-violet-600/30 selection:text-white">
+    <div className="relative min-h-screen text-gray-900 dark:text-gray-200 selection:bg-violet-600/30 selection:text-white transition-colors duration-500">
       {/* Ambient Visual Canvas Background */}
       <GridBackground />
       

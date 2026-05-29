@@ -40,10 +40,10 @@ export default function Skills() {
             <div className="absolute -right-10 -bottom-10 w-24 h-24 rounded-full bg-violet-600/0 group-hover:bg-violet-600/10 glow-blur transition-all duration-500 pointer-events-none" />
             
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-white/5 rounded-2xl border border-white/5 group-hover:border-violet-500/30 transition-colors duration-300">
+              <div className="p-3 bg-black/5 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 group-hover:border-violet-500/30 transition-colors duration-300">
                 {getIcon(skillGroup.category)}
               </div>
-              <h3 className="text-lg font-bold text-white tracking-wide">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white tracking-wide">
                 {skillGroup.category}
               </h3>
             </div>
@@ -52,7 +52,7 @@ export default function Skills() {
               {skillGroup.items.map((skill, sIdx) => (
                 <span 
                   key={sIdx} 
-                  className="px-3 py-1.5 text-xs font-semibold rounded-full bg-white/5 text-gray-300 border border-white/5 hover:border-white/10 hover:text-white transition-colors duration-200"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-full bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                 >
                   {skill}
                 </span>

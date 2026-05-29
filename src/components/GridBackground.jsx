@@ -3,25 +3,25 @@ import { motion } from 'framer-motion';
 
 export default function GridBackground() {
   return (
-    <div className="fixed inset-0 -z-50 w-full h-full overflow-hidden bg-[#030014]">
+    <div className="fixed inset-0 -z-50 w-full h-full overflow-hidden bg-white dark:bg-[#030014] transition-colors duration-500">
       {/* Geometric Grid Pattern */}
       <div 
-        className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 w-full h-full opacity-[0.03] dark:opacity-[0.06] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px',
         }}
       />
 
       {/* Radial overlay to vignette the grid at the corners */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_20%,#030014_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_20%,var(--bg-color)_100%)] pointer-events-none" />
 
       {/* Ambient Drifting Glowing Orbs */}
       <motion.div
-        className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-purple-600/10 glow-blur pointer-events-none"
+        className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-purple-600/10 dark:bg-purple-600/10 glow-blur pointer-events-none"
         animate={{
           x: [0, 40, -30, 0],
           y: [0, -60, 40, 0],

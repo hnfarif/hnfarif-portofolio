@@ -12,8 +12,8 @@ export default function TechMarquee() {
   ];
 
   return (
-    <section className="py-12 bg-slate-950/20 border-y border-white/5 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#030014]/40" />
+    <section className="py-12 bg-slate-100/20 dark:bg-slate-950/20 border-y border-black/5 dark:border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 bg-slate-50/40 dark:bg-[#030014]/40" />
       <div className="relative z-10 flex flex-col gap-2">
         <InfiniteMarquee items={row1} reverse={false} />
         <InfiniteMarquee items={row2} reverse={true} />

@@ -74,7 +74,7 @@ export default function Hero() {
         {/* Status Badge */}
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/5 text-xs font-semibold tracking-wider text-purple-300 uppercase mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-black/5 dark:border-white/5 text-xs font-semibold tracking-wider text-purple-600 dark:text-purple-300 uppercase mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           Active Backend Engineer
@@ -83,7 +83,7 @@ export default function Hero() {
         {/* Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 max-w-4xl"
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6 max-w-4xl"
         >
           Building Resilient,{" "}
           <span className="text-gradient">Enterprise-Scale</span> Systems
@@ -92,10 +92,10 @@ export default function Hero() {
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="text-gray-400 max-w-2xl text-base sm:text-lg md:text-xl font-light mb-10 leading-relaxed"
+          className="text-gray-600 dark:text-gray-400 max-w-2xl text-base sm:text-lg md:text-xl font-light mb-10 leading-relaxed"
         >
           Hi, I'm{" "}
-          <strong className="text-white font-semibold">
+          <strong className="text-gray-900 dark:text-white font-semibold">
             {cvData.personal.name}
           </strong>
           , Most of my professional experience comes from backend development,
@@ -136,7 +136,7 @@ export default function Hero() {
             href={cvData.personal.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors duration-200"
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
             aria-label="GitHub Profile"
           >
             <GithubIcon className="w-6 h-6" />
@@ -145,14 +145,14 @@ export default function Hero() {
             href={cvData.personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors duration-200"
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
             aria-label="LinkedIn Profile"
           >
             <LinkedinIcon className="w-6 h-6" />
           </a>
           <a
             href={`mailto:${cvData.personal.email}`}
-            className="text-gray-400 hover:text-white transition-colors duration-200"
+            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200"
             aria-label="Email Hanif"
           >
             <Mail className="w-6 h-6" />
@@ -162,14 +162,14 @@ export default function Hero() {
         {/* Stats Grid */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl p-6 glass-panel rounded-3xl border border-white/5 bg-slate-950/20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl p-6 glass-panel rounded-3xl border border-black/5 dark:border-white/5 bg-white/10 dark:bg-slate-950/20"
         >
           {cvData.personal.stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-4 md:border-r border-white/5 last:border-0"
+              className="text-center p-4 md:border-r border-black/5 dark:border-white/5 last:border-0"
             >
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-1">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-1">
                 {stat.value}
               </h3>
               <p className="text-xs text-gray-500 uppercase tracking-widest">
