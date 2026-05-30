@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Download, ArrowRight, Mail } from "lucide-react";
 import Button from "../components/Button";
+import BorderGlow from "../components/BorderGlow";
 import { cvData } from "../data/cvData";
 
 const GithubIcon = (props) => (
@@ -72,12 +73,13 @@ export default function Hero() {
         animate="visible"
       >
         {/* Status Badge */}
-        <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-black/5 dark:border-white/5 text-xs font-semibold tracking-wider text-purple-600 dark:text-purple-300 uppercase mb-8"
-        >
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          Active Backend Engineer
+        <motion.div variants={itemVariants} className="mb-8">
+          <BorderGlow borderRadius="9999px">
+            <div className="inline-flex items-center gap-2 px-4 py-2 glass-panel border border-black/5 dark:border-white/5 text-xs font-semibold tracking-wider text-purple-600 dark:text-purple-300 uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              Active Backend Engineer
+            </div>
+          </BorderGlow>
         </motion.div>
 
         {/* Headline */}
@@ -160,23 +162,24 @@ export default function Hero() {
         </motion.div>
 
         {/* Stats Grid */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl p-6 glass-panel rounded-3xl border border-black/5 dark:border-white/5 bg-white/10 dark:bg-slate-950/20"
-        >
-          {cvData.personal.stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-4 md:border-r border-black/5 dark:border-white/5 last:border-0"
-            >
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-1">
-                {stat.value}
-              </h3>
-              <p className="text-xs text-gray-500 uppercase tracking-widest">
-                {stat.label}
-              </p>
+        <motion.div variants={itemVariants} className="w-full max-w-4xl">
+          <BorderGlow>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 glass-panel border border-black/5 dark:border-white/5 bg-white/10 dark:bg-slate-950/20">
+              {cvData.personal.stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 md:border-r border-black/5 dark:border-white/5 last:border-0"
+                >
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-1">
+                    {stat.value}
+                  </h3>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </BorderGlow>
         </motion.div>
       </motion.div>
     </section>

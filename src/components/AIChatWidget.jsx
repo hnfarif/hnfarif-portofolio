@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, Send, X, MessageSquare, Bot, User } from "lucide-react";
 import { cvData } from "../data/cvData";
+import BorderGlow from "./BorderGlow";
 
 // System prompt containing Hanif's complete CV context
 const SYSTEM_INSTRUCTION = `You are Hanif's Virtual Recruiter Assistant, a professional and friendly AI representative for Hanif Arif. 
@@ -212,138 +213,142 @@ export default function AIChatWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="glass-panel w-[320px] sm:w-95 h-120 sm:h-130 rounded-3xl overflow-hidden flex flex-col shadow-[0_10px_50px_rgba(124,58,237,0.25)] border border-black/5 dark:border-white/10 mb-4"
+            className="mb-4"
           >
-            {/* Header */}
-            <div className="p-4 bg-white/80 dark:bg-slate-950/60 border-b border-black/5 dark:border-white/5 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-600 dark:text-violet-400">
-                  <Bot className="w-4 h-4" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold text-gray-900 dark:text-white leading-none">
-                    Hanif's AI Agent
-                  </h4>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">
-                      {apiKey ? "API Live" : "Demo Mode"}
-                    </span>
+            <BorderGlow borderRadius="1.875rem">
+              <div className="glass-panel w-[320px] sm:w-95 h-120 sm:h-130 overflow-hidden flex flex-col shadow-[0_10px_50px_rgba(124,58,237,0.25)] border border-black/5 dark:border-white/10">
+                {/* Header */}
+                <div className="p-4 bg-white/80 dark:bg-slate-950/60 border-b border-black/5 dark:border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-600 dark:text-violet-400">
+                      <Bot className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-900 dark:text-white leading-none">
+                        Hanif's AI Agent
+                      </h4>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[10px] text-gray-500 font-semibold tracking-wider uppercase">
+                          {apiKey ? "API Live" : "Demo Mode"}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
-              >
-                <X className="w-4.5 h-4.5" />
-              </button>
-            </div>
-
-            {/* Messages */}
-            <div className="grow overflow-y-auto p-4 flex flex-col gap-4 custom-scrollbar bg-gray-50/50 dark:bg-slate-950/20">
-              {messages.map((msg, index) => {
-                const isModel = msg.role === "model";
-                return (
-                  <div
-                    key={index}
-                    className={`flex items-start gap-2.5 max-w-[85%] ${isModel ? "self-start" : "self-end flex-row-reverse"}`}
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-1.5 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
                   >
-                    <div
-                      className={`p-2 rounded-full border text-xs shrink-0 ${
-                        isModel
-                          ? "bg-violet-600/10 border-violet-500/20 text-violet-600 dark:text-violet-400"
-                          : "bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/5 text-gray-600 dark:text-gray-300"
-                      }`}
-                    >
-                      {isModel ? (
+                    <X className="w-4.5 h-4.5" />
+                  </button>
+                </div>
+
+                {/* Messages */}
+                <div className="grow overflow-y-auto p-4 flex flex-col gap-4 custom-scrollbar bg-gray-50/50 dark:bg-slate-950/20">
+                  {messages.map((msg, index) => {
+                    const isModel = msg.role === "model";
+                    return (
+                      <div
+                        key={index}
+                        className={`flex items-start gap-2.5 max-w-[85%] ${isModel ? "self-start" : "self-end flex-row-reverse"}`}
+                      >
+                        <div
+                          className={`p-2 rounded-full border text-xs shrink-0 ${
+                            isModel
+                              ? "bg-violet-600/10 border-violet-500/20 text-violet-600 dark:text-violet-400"
+                              : "bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/5 text-gray-600 dark:text-gray-300"
+                          }`}
+                        >
+                          {isModel ? (
+                            <Bot className="w-3.5 h-3.5" />
+                          ) : (
+                            <User className="w-3.5 h-3.5" />
+                          )}
+                        </div>
+                        <div
+                          className={`p-3 rounded-2xl text-xs leading-relaxed font-light ${
+                            isModel
+                              ? "bg-white dark:bg-slate-900/60 border border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-200 rounded-tl-none shadow-sm"
+                              : "bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-tr-none shadow-md"
+                          }`}
+                        >
+                          {msg.text}
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                  {isLoading && (
+                    <div className="flex items-start gap-2.5 self-start max-w-[85%]">
+                      <div className="p-2 rounded-full bg-violet-600/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 shrink-0">
                         <Bot className="w-3.5 h-3.5" />
-                      ) : (
-                        <User className="w-3.5 h-3.5" />
-                      )}
+                      </div>
+                      <div className="bg-white dark:bg-slate-900/60 border border-black/5 dark:border-white/5 text-gray-400 p-3 rounded-2xl rounded-tl-none text-xs flex gap-1.5 items-center shadow-sm">
+                        <span
+                          className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "0ms" }}
+                        />
+                        <span
+                          className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "150ms" }}
+                        />
+                        <span
+                          className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+                          style={{ animationDelay: "300ms" }}
+                        />
+                      </div>
                     </div>
-                    <div
-                      className={`p-3 rounded-2xl text-xs leading-relaxed font-light ${
-                        isModel
-                          ? "bg-white dark:bg-slate-900/60 border border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-200 rounded-tl-none shadow-sm"
-                          : "bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-tr-none shadow-md"
-                      }`}
-                    >
-                      {msg.text}
+                  )}
+
+                  <div ref={chatEndRef} />
+                </div>
+
+                {/* Suggestions */}
+                {messages.length === 1 && (
+                  <div className="px-4 py-2 border-t border-black/5 dark:border-white/5 flex flex-col gap-1.5 bg-white/50 dark:bg-transparent">
+                    <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
+                      Suggested Questions
+                    </p>
+                    <div className="flex flex-col gap-1.5">
+                      {suggestions.map((text, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleSend(text)}
+                          className="text-left px-3 py-2 text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-black/2 dark:bg-white/2 border border-black/5 dark:border-white/5 hover:border-violet-500/30 hover:bg-violet-500/5 rounded-xl transition-all duration-200 leading-snug"
+                        >
+                          {text}
+                        </button>
+                      ))}
                     </div>
                   </div>
-                );
-              })}
+                )}
 
-              {isLoading && (
-                <div className="flex items-start gap-2.5 self-start max-w-[85%]">
-                  <div className="p-2 rounded-full bg-violet-600/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 shrink-0">
-                    <Bot className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="bg-white dark:bg-slate-900/60 border border-black/5 dark:border-white/5 text-gray-400 p-3 rounded-2xl rounded-tl-none text-xs flex gap-1.5 items-center shadow-sm">
-                    <span
-                      className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
-                      style={{ animationDelay: "0ms" }}
-                    />
-                    <span
-                      className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
-                      style={{ animationDelay: "150ms" }}
-                    />
-                    <span
-                      className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
-                      style={{ animationDelay: "300ms" }}
-                    />
-                  </div>
-                </div>
-              )}
-
-              <div ref={chatEndRef} />
-            </div>
-
-            {/* Suggestions */}
-            {messages.length === 1 && (
-              <div className="px-4 py-2 border-t border-black/5 dark:border-white/5 flex flex-col gap-1.5 bg-white/50 dark:bg-transparent">
-                <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
-                  Suggested Questions
-                </p>
-                <div className="flex flex-col gap-1.5">
-                  {suggestions.map((text, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleSend(text)}
-                      className="text-left px-3 py-2 text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-black/2 dark:bg-white/2 border border-black/5 dark:border-white/5 hover:border-violet-500/30 hover:bg-violet-500/5 rounded-xl transition-all duration-200 leading-snug"
-                    >
-                      {text}
-                    </button>
-                  ))}
-                </div>
+                {/* Input Form */}
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSend();
+                  }}
+                  className="p-3 border-t border-black/5 dark:border-white/5 bg-white/80 dark:bg-slate-950/40 flex gap-2"
+                >
+                  <input
+                    type="text"
+                    placeholder="Ask something about Hanif..."
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    disabled={isLoading}
+                    className="grow bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 focus:border-violet-500/40 focus:outline-none rounded-xl px-3.5 py-2.5 text-xs text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-600 disabled:opacity-50 transition-colors duration-200"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isLoading || !input.trim()}
+                    className="p-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:bg-violet-800 disabled:opacity-50 text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                  </button>
+                </form>
               </div>
-            )}
-
-            {/* Input Form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSend();
-              }}
-              className="p-3 border-t border-black/5 dark:border-white/5 bg-white/80 dark:bg-slate-950/40 flex gap-2"
-            >
-              <input
-                type="text"
-                placeholder="Ask something about Hanif..."
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                disabled={isLoading}
-                className="grow bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 focus:border-violet-500/40 focus:outline-none rounded-xl px-3.5 py-2.5 text-xs text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-600 disabled:opacity-50 transition-colors duration-200"
-              />
-              <button
-                type="submit"
-                disabled={isLoading || !input.trim()}
-                className="p-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 disabled:bg-violet-800 disabled:opacity-50 text-white transition-all duration-200 flex items-center justify-center cursor-pointer"
-              >
-                <Send className="w-3.5 h-3.5" />
-              </button>
-            </form>
+            </BorderGlow>
           </motion.div>
         )}
       </AnimatePresence>
